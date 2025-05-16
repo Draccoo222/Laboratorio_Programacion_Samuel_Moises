@@ -110,8 +110,8 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                             break;
                             
                         case 3:
+                            System.out.println("Regresando al menu principal..");
                             break;
-                         
                         case 4:
                             System.out.println("Introduzca una opcion valida.");
                             break;
@@ -126,7 +126,7 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                     break;
             }
 
-        }while (opc != 1 && opc != 2 && opc != 3);
+        }while (opc > 0);
 
     }
 
