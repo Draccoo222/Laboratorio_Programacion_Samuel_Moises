@@ -1,13 +1,35 @@
 package laboratorio_programacion_samuel_moises;
 
+import java.util.Scanner;
+
 
 public class Vasquez_Samuel_Ceballos_Moises_Estructura {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner entrada = new Scanner(System.in);
+        int opc;
+      
+        do{
+            System.out.println("-------Menu-------");
+            System.out.println("[1] Cifrado Cesar");
+            System.out.println("[2] Filtrar");
+            System.out.println("[3] Codigo Enigma");
+            System.out.println("------------------");
+            System.out.print("Introduzca la opcion que desea: ");
+            opc = entrada.nextInt();
+            switch(opc){
+                case 1: // Cifrado Cesar
+                    break;
+                case 2: // Filtrar
+                    break;
+                case 3: // Codigo Enigma
+                    break;
+                default: //Opcion erronea
+                    System.out.println("Porfavor, solo introduzca las opciones validas.");
+                    break;
+            }
+        }while(opc > 0 && opc < 4);
+        
+       
     }
     
 }
