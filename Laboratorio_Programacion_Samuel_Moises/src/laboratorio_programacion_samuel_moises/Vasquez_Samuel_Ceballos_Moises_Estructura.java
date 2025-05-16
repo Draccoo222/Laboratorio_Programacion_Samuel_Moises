@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Vasquez_Samuel_Ceballos_Moises_Estructura {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n");
         int opc;
       
         do{
