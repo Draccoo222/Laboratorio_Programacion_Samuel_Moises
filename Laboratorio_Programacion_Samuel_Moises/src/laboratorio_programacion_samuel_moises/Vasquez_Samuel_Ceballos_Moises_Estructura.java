@@ -57,7 +57,7 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                     boolean seEncontro = false;
 
                     System.out.print("Ingrese una frase: "); //PIDE FRASE
-                    String frase = entrada.next();
+                    String frase2 = entrada.next();
 
                     while (longitudMin < 0) { // VALIDA SI ES NÚMERO POSITIVO
                         System.out.print("Ingrese un numero positivo para la longitud minima requerida: ");
@@ -66,8 +66,8 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
 
                     System.out.println("Palabras cuya longitud es mayor a " + longitudMin + ": ");
 
-                    for (int index = 0; index < frase.length(); index++) {
-                        letra = frase.charAt(index);
+                    for (int index = 0; index < frase2.length(); index++) {
+                        letra = frase2.charAt(index);
 
                         // Ignorar mas signos de puntuación
                         if (letra != ' ' && letra != ',' && letra != '.' && letra != ':' && letra != ';' && letra != '!' && letra != '?') {
