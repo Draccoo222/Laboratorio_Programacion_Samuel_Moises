@@ -20,7 +20,7 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
             opc = entrada.nextInt();
             switch (opc) {
                 case 1: // Cifrado Cesar
-                    System.out.println("\n****Cifrado Cesar****");
+                    System.out.println("\n*Cifrado Cesar*");
                     // Se le pide al usuario que introduzca una frase
                     System.out.print("Introduzca la frase a cifrar: ");
                     String frase = entrada.next();
@@ -99,12 +99,32 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                     System.out.println("[3] Regresar");
                     System.out.println("----------------------------");
                     int opcEnig;
+                    String textoEncriptado = "";
+                    String letrilla1 = "";
+                    String letrilla2 = "";
+                    
                     do{
                     System.out.print("Introduzca la opcion que desea");
                     opcEnig = entrada.nextInt();
-                    String textoEncriptado;
                     switch(opcEnig){
                         case 1: // Encriptar
+                            System.out.print("Introduzca una palabra:");
+                            String texto = entrada.next();
+                            for (int i = 0; i < texto.length(); i++)
+                            {
+                                char letraPar;
+                                char letraImp;
+                                if(i % 2 == 0){
+                                    letraPar = texto.charAt(i);
+                                    letrilla1 += letraPar;
+                                }else{
+                                    letraImp = texto.charAt(i);
+                                    letrilla2 += letraImp;
+                                }
+                               
+                                textoEncriptado = letrilla2+ letrilla1;
+                            }
+                            System.out.println("Texto Encriptado: " + textoEncriptado);
                             
                             break;
                         case 2: // Desencriptar
