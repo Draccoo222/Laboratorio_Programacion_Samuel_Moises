@@ -110,22 +110,21 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                         case 1: // Encriptar
                             System.out.print("Introduzca una palabra:");
                             String texto = entrada.next();
-                            for (int i = 0; i < texto.length(); i++)
+                            for (int i = 0; i < texto.length(); i++) // Crea un for para revisar los caracteres de la palabra
                             {
                                 char letraPar;
                                 char letraImp;
-                                if(i % 2 == 0){
+                                if(i % 2 == 0){ // Segun los caracteres, si es divisible por dos la posicion [i], consigue las letras pares
                                     letraPar = texto.charAt(i);
                                     letrilla1 += letraPar;
-                                }else{
+                                }else{ // Sino, consigue las impares
                                     letraImp = texto.charAt(i);
                                     letrilla2 += letraImp;
                                 }
-                               
-                                textoEncriptado = letrilla2+ letrilla1;
+                               //Alfinal se unen las dos partes, las pares e impares
+                                textoEncriptado = letrilla1+ letrilla2;
                             }
                             System.out.println("Texto Encriptado: " + textoEncriptado);
-                            
                             break;
                         case 2: // Desencriptar
                             break;
