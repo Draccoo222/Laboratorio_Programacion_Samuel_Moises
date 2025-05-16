@@ -9,7 +9,7 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
         int opc;
 
   
-        do {
+        while(true){
             System.out.println("-------Menu-------");
 
             System.out.println("[1] Cifrado Cesar");
@@ -105,6 +105,7 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                     String textoEncriptado;
                     switch(opcEnig){
                         case 1: // Encriptar
+                            
                             break;
                         case 2: // Desencriptar
                             break;
@@ -126,8 +127,9 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                     break;
             }
 
-        }while (opc > 0);
-
+        }
+        
+        
     }
 
 }
