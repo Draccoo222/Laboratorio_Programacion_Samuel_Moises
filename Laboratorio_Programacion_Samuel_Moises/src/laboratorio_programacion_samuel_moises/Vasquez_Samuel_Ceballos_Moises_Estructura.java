@@ -8,8 +8,7 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
         Scanner entrada = new Scanner(System.in).useDelimiter("\n");
         int opc;
 
-  
-        while(true){
+        while (true) {
             System.out.println("-------Menu-------");
 
             System.out.println("[1] Cifrado Cesar");
@@ -29,19 +28,20 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                     int desplaz = entrada.nextInt();
                     // Se asegura que el desplazamiento sea segun la cantidad de numeros en el abecedario
                     desplaz = desplaz % 26;
-                    
+
                     String resultado = "";
-                    
+
                     for (int i = 0; i < frase.length(); i++) {
-                      char letra =  frase.charAt(i);
-                      if(Character.isLetter(letra)){ // Se verifica que los caracteres dentro de la frase sean letras para poder encriptarlos
-                          char base = (Character.isUpperCase(letra)) ? 'A' : 'a'; // Se usa para asegurar que las letras mayuscula y minuscula no sean confundidas
-                          char cifrado = (char) ((letra - base + desplaz + 26)%26 + base); /* Hace la conversion tipo casting de la letra para 
+                        char letra = frase.charAt(i);
+                        if (Character.isLetter(letra)) { // Se verifica que los caracteres dentro de la frase sean letras para poder encriptarlos
+                            char base = (Character.isUpperCase(letra)) ? 'A' : 'a'; // Se usa para asegurar que las letras mayuscula y minuscula no sean confundidas
+                            char cifrado = (char) ((letra - base + desplaz + 26) % 26 + base);
+                            /* Hace la conversion tipo casting de la letra para 
                           obtener su posicion y asi cifrara segun el desplazamiento*/
-                          resultado += cifrado; // Despues de cifrar se suma la letra cifrada al resultado, que es la palabra modificada 
-                      }else{
-                          resultado += letra; // Si es un signo de puntuacion o un espacio se suma sin modificaro
-                      }
+                            resultado += cifrado; // Despues de cifrar se suma la letra cifrada al resultado, que es la palabra modificada 
+                        } else {
+                            resultado += letra; // Si es un signo de puntuacion o un espacio se suma sin modificaro
+                        }
                     }
                     System.out.println("---- RESULTADO ----");
                     System.out.println(resultado);
@@ -91,64 +91,81 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                         System.out.println("No se encontraron palabras que cumplan la condicion.");
                     }
                     break;
-                    
+
                 case 3: // Codigo Enigma
-                    System.out.println("---- Codigo Enigma Menu ----");
-                    System.out.println("[1] Encriptar    Texto");
-                    System.out.println("[2] Desencriptar Texto");
-                    System.out.println("[3] Regresar");
-                    System.out.println("----------------------------");
                     int opcEnig;
-                    String textoEncriptado = "";
-                    String letrilla1 = "";
-                    String letrilla2 = "";
-                    
-                    do{
-                    System.out.print("Introduzca la opcion que desea");
-                    opcEnig = entrada.nextInt();
-                    switch(opcEnig){
-                        case 1: // Encriptar
-                            System.out.print("Introduzca una palabra:");
-                            String texto = entrada.next();
-                            for (int i = 0; i < texto.length(); i++) // Crea un for para revisar los caracteres de la palabra
-                            {
-                                char letraPar;
-                                char letraImp;
-                                if(i % 2 == 0){ // Segun los caracteres, si es divisible por dos la posicion [i], consigue las letras pares
-                                    letraPar = texto.charAt(i);
-                                    letrilla1 += letraPar;
-                                }else{ // Sino, consigue las impares
-                                    letraImp = texto.charAt(i);
-                                    letrilla2 += letraImp;
+                    String textoEnigma = ""; // variable compartida para guardar el texto encriptado
+
+                    do {
+                        System.out.println("---- Codigo Enigma Menu ----");
+                        System.out.println("[1] Encriptar Texto");
+                        System.out.println("[2] Desencriptar Texto");
+                        System.out.println("[3] Regresar");
+                        System.out.print("Introduzca la opcion que desea: ");
+                        opcEnig = entrada.nextInt();
+
+                        switch (opcEnig) {
+                            case 1: // Encriptar
+                                System.out.print("Introduzca una palabra: ");
+                                String texto = entrada.next();
+                                String pares = "";
+                                String impares = "";
+
+                                for (int i = 0; i < texto.length(); i++) {
+                                    if (i % 2 == 0) {
+                                        pares += texto.charAt(i); // posiciones pares
+                                    } else {
+                                        impares += texto.charAt(i); // posiciones impares
+                                    }
                                 }
-                               //Alfinal se unen las dos partes, las pares e impares
-                                textoEncriptado = letrilla1+ letrilla2;
-                            }
-                            System.out.println("Texto Encriptado: " + textoEncriptado);
-                            break;
-                        case 2: // Desencriptar
-                            break;
-                            
-                        case 3:
-                            System.out.println("Regresando al menu principal..");
-                            break;
-                        case 4:
-                            System.out.println("Introduzca una opcion valida.");
-                            break;
-                    
-                     }
-                    }while(opcEnig != 1 && opcEnig !=2 && opcEnig !=3);
-                    
-                    
+
+                                textoEnigma = pares + impares;
+                                System.out.println("Texto Encriptado: " + textoEnigma);
+                                break;
+
+                            case 2: // Desencriptar
+                                if (textoEnigma.equals("")) {
+                                    System.out.println("Primero debes encriptar un texto.");
+                                    break;
+                                }
+
+                                int mitad = textoEnigma.length() / 2;
+                                pares = textoEnigma.substring(0, mitad + textoEnigma.length() % 2); // parte par
+                                impares = textoEnigma.substring(mitad + textoEnigma.length() % 2);  // parte impar
+
+                                String textoOriginal = "";
+                                for (int i = 0; i < impares.length(); i++) {
+                                    textoOriginal += pares.charAt(i);
+                                    textoOriginal += impares.charAt(i);
+                                }
+
+                                // Si hay un caracter extra (cuando la longitud es impar)
+                                if (pares.length() > impares.length()) {
+                                    textoOriginal += pares.charAt(pares.length() - 1);
+                                }
+
+                                System.out.println("Texto Desencriptado: " + textoOriginal);
+                                break;
+
+                            case 3:
+                                System.out.println("Regresando al menu principal...");
+                                break;
+
+                            default:
+                                System.out.println("Opcion invalida. Intente de nuevo.");
+                                break;
+                        }
+
+                    } while (opcEnig != 3);
                     break;
+
                 default: //Opcion erronea
                     System.out.println("Porfavor, solo introduzca las opciones validas.");
                     break;
             }
 
         }
-        
-        
+
     }
 
 }
