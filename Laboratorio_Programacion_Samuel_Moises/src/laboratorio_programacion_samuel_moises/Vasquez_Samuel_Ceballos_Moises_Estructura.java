@@ -93,7 +93,33 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                     break;
                     
                 case 3: // Codigo Enigma
-
+                    System.out.println("---- Codigo Enigma Menu ----");
+                    System.out.println("[1] Encriptar    Texto");
+                    System.out.println("[2] Desencriptar Texto");
+                    System.out.println("[3] Regresar");
+                    System.out.println("----------------------------");
+                    int opcEnig;
+                    do{
+                    System.out.print("Introduzca la opcion que desea");
+                    opcEnig = entrada.nextInt();
+                    String textoEncriptado;
+                    switch(opcEnig){
+                        case 1: // Encriptar
+                            break;
+                        case 2: // Desencriptar
+                            break;
+                            
+                        case 3:
+                            break;
+                         
+                        case 4:
+                            System.out.println("Introduzca una opcion valida.");
+                            break;
+                    
+                     }
+                    }while(opcEnig != 1 && opcEnig !=2 && opcEnig !=3);
+                    
+                    
                     break;
                 default: //Opcion erronea
                     System.out.println("Porfavor, solo introduzca las opciones validas.");
