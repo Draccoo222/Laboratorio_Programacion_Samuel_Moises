@@ -22,7 +22,7 @@ public class Vasquez_Samuel_Ceballos_Moises_Estructura {
                 case 2: // Filtrar
                     break;
                 case 3: // Codigo Enigma
-                    System.out.println("HOLA");
+                    System.out.println("aaaa");
                     break;
                 default: //Opcion erronea
                     System.out.println("Porfavor, solo introduzca las opciones validas.");
